@@ -14,7 +14,6 @@ model = tf.keras.models.load_model("model.h5")
 
 def predict(img_path):  # mandatory: function name should be predict and it accepts a string which is image location
     img = tf.keras.preprocessing.image.load_img(img_path, target_size=(48,48,1))
-    plt.imshow(img)
     img = np.expand_dims(img, axis=0)
     img = img.reshape(3, 48, 48)
     yhat = model.predict(img)
